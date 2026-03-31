@@ -1,0 +1,125 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    background var(--transition-base);
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(34, 211, 238, 0.08);
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.content {
+  padding: 2.25rem 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.375rem;
+}
+
+.company {
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.links {
+  display: flex;
+  gap: 0.875rem;
+}
+
+.links a {
+  color: var(--text-muted);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.links a:hover {
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+.title {
+  font-size: 1.375rem;
+  margin-bottom: 1.375rem;
+  color: var(--text-main);
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+}
+
+.details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-bottom: 1.75rem;
+}
+
+.details p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 100%;
+}
+
+.details strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  margin-bottom: 1.75rem;
+}
+
+.tech {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.card:hover .tech {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.fullWidthBtn {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1.875rem 1.75rem 1.75rem;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+}

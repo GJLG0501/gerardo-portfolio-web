@@ -1,0 +1,28 @@
+.header {
+  margin-bottom: 3.75rem;
+}
+
+.subtitle {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--accent-cyan);
+  margin-bottom: 0.625rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.title {
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  color: var(--text-main);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+.line {
+  height: 2px;
+  width: 48px;
+  background: linear-gradient(90deg, var(--accent-cyan), transparent);
+  border-radius: 2px;
+}

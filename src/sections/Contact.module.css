@@ -1,0 +1,116 @@
+.contactSection {
+  position: relative;
+  overflow: hidden;
+}
+
+.contactSection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.07) 0%, transparent 65%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+.content {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centeredTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centeredTitle :global(.line) {
+  margin: 0 auto;
+}
+
+.description {
+  color: var(--text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 56ch;
+}
+
+.actions {
+  margin-bottom: 1.25rem;
+}
+
+/* Email visible */
+.emailDisplay {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 3rem;
+  transition: color var(--transition-fast);
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.3);
+  padding-bottom: 2px;
+}
+
+.emailDisplay:hover {
+  color: var(--accent-cyan);
+  border-bottom-color: var(--accent-cyan);
+}
+
+/* Social links */
+.socialLinks {
+  display: flex;
+  gap: 1.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+  width: 100%;
+  justify-content: center;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all var(--transition-base);
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+}
+
+.socialLink:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .description {
+    font-size: 1rem;
+  }
+  .socialLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.875rem;
+  }
+  .socialLink {
+    width: 100%;
+    justify-content: center;
+  }
+}
