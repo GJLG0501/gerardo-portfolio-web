@@ -214,67 +214,165 @@ export const projects = [
   {
     id: 5,
     slug: "analisis-datos-salud-denue",
-    title: "Analisis de Datos de Salud con DENUE",
+    title: "Analisis Territorial de Salud con DENUE",
     company: "DENUE / INEGI",
-    context: "Exploracion territorial de unidades economicas relacionadas con servicios de salud en Mexico.",
-    problem: "La oferta de servicios de salud puede quedar dispersa y dificil de interpretar cuando solo se consulta como directorio o tabla.",
-    solution: "Analisis exploratorio con datos DENUE para limpiar, clasificar y visualizar patrones de establecimientos por ubicacion y categoria.",
-    impact: "Lectura mas clara de concentraciones, cobertura y oportunidades de analisis territorial para toma de decisiones.",
-    stack: ["Python", "Pandas", "DENUE", "Analisis Geoespacial", "Visualizacion"],
+    context: "Exploracion territorial de establecimientos de salud general en Iztapalapa usando el Directorio Estadistico Nacional de Unidades Economicas.",
+    problem: "La oferta de salud aparece como un directorio tabular: abundante, pero dificil de leer para detectar concentraciones, vacios de cobertura y diferencias publico-privadas.",
+    solution: "Limpieza DENUE, clasificacion por tipo/sector, analisis geoespacial y persistencia homologica para interpretar densidad, aislamiento y cobertura territorial.",
+    impact: "Se identificaron 563 establecimientos, 57 puntos aislados y zonas candidatas para intervencion o nuevas ubicaciones con evidencia visual y topologica.",
+    stack: ["Python", "Pandas", "Geoanalisis", "DENUE", "TDA", "Persistencia Homologica"],
     githubUrl: "https://github.com/GJLG0501/Analisis_Datos_Salud_DENUE",
     caseStudyUrl: "https://github.com/GJLG0501/Analisis_Datos_Salud_DENUE",
     extended: {
       narrative: true,
       sections: [
         {
-          title: "Contexto del Proyecto",
-          content: "El Directorio Estadistico Nacional de Unidades Economicas permite estudiar la distribucion de establecimientos por actividad, ubicacion y caracteristicas operativas. Este proyecto toma ese insumo publico para convertirlo en una lectura analitica enfocada en servicios de salud."
+          title: "Contexto y Alcance",
+          content: "El proyecto transforma registros DENUE de establecimientos de salud general en una lectura territorial accionable. La base se concentro en Iztapalapa y separo consultorios, clinicas y hospitales por sector publico/privado, personal ocupado y ubicacion geografica. El valor no esta solo en contar unidades, sino en entender como se distribuyen y que zonas quedan mas expuestas por distancia o baja densidad.",
+          image: "/assets/projects/analisis-datos-salud-denue/01_barras_tipo_establecimiento.png",
+          caption: "Distribucion por tipo de establecimiento: la oferta se concentra principalmente en unidades de menor escala, mientras hospitales y clinicas tienen una presencia mucho mas limitada."
         },
         {
-          title: "Preparacion y Limpieza",
-          content: "El trabajo parte de organizar los registros, revisar campos relevantes y preparar variables utiles para segmentar establecimientos de salud. El objetivo es reducir ruido del directorio original y dejar una base mas apta para exploracion territorial."
+          title: "Balance Publico-Privado",
+          content: "La clasificacion por sector permite distinguir si la cobertura depende mas de capacidad publica o de oferta privada. Este corte es importante porque dos colonias con el mismo numero de establecimientos pueden tener niveles de acceso muy distintos si la mayoria de puntos responde a servicios privados, consultorios pequenos o infraestructura publica.",
+          image: "/assets/projects/analisis-datos-salud-denue/02_barras_sector.png",
+          caption: "Comparacion de establecimientos por sector, util para medir el peso relativo de la oferta publica frente a la privada."
         },
         {
-          title: "Analisis Exploratorio",
-          content: "Se analizan concentraciones, categorias y patrones de presencia por zona, buscando responder donde se ubican los servicios, que tipos de unidades aparecen con mayor frecuencia y como se distribuyen dentro del territorio observado."
+          title: "Capacidad Operativa",
+          content: "El rango de personal ocupado funciona como proxy de escala operativa. Una red con muchos puntos pequenos no equivale a una red robusta: puede resolver atencion basica, pero no necesariamente cubrir urgencias, hospitalizacion o demanda simultanea. Por eso se cruzo el tamano del personal con el tipo de establecimiento.",
+          image: "/assets/projects/analisis-datos-salud-denue/03_barras_personal_ocupado.png",
+          caption: "Distribucion por personal ocupado: ayuda a diferenciar presencia territorial de capacidad instalada real."
         },
         {
-          title: "Valor del Resultado",
-          content: "El resultado funciona como base para comunicar hallazgos de salud publica, planeacion urbana o inteligencia territorial. Tambien muestra capacidad para trabajar con datos abiertos reales, limpiarlos y transformarlos en evidencia visualizable."
-        }
-      ]
-    }
-  },
-  {
-    id: 6,
-    slug: "teorema-del-nervio",
-    title: "Teorema del Nervio",
-    company: "Topologia Algebraica",
-    context: "Proyecto academico sobre el Teorema del Nervio y su interpretacion mediante cubiertas, complejos simpliciales y equivalencia homotopica.",
-    problem: "Los conceptos de topologia algebraica suelen ser abstractos y dificiles de comunicar si no se conectan con ejemplos geometricos.",
-    solution: "Presentacion matematica del teorema, sus condiciones y su intuicion geometrica para estudiar espacios a partir de cubiertas.",
-    impact: "Puente conceptual entre geometria, combinatoria y topologia, util para explicar estructuras complejas con representaciones discretas.",
-    stack: ["Matematicas", "Topologia Algebraica", "Complejos Simpliciales", "LaTeX", "Investigacion"],
-    githubUrl: "https://github.com/GJLG0501/Teorema-del-Nervio",
-    caseStudyUrl: "https://github.com/GJLG0501/Teorema-del-Nervio",
-    extended: {
-      narrative: true,
-      sections: [
-        {
-          title: "Idea Central",
-          content: "El Teorema del Nervio conecta una cubierta adecuada de un espacio topologico con un complejo simplicial construido a partir de las intersecciones de sus conjuntos. Bajo condiciones apropiadas, ambos conservan informacion topologica esencial."
+          title: "Personal por Tipo de Unidad",
+          content: "El cruce entre tipo de establecimiento y personal ocupado permite ver donde se concentra la capacidad. Los consultorios dominan la red, pero su tamano operativo suele ser reducido; hospitales y clinicas aparecen como nodos menos frecuentes, aunque con mayor potencial de atencion compleja.",
+          image: "/assets/projects/analisis-datos-salud-denue/04_personal_ocupado_por_tipo.png",
+          caption: "Cruce entre tipo de establecimiento y rango de personal ocupado para identificar que categorias sostienen mayor capacidad."
         },
         {
-          title: "Construccion del Nervio",
-          content: "Cada conjunto de la cubierta se representa como un vertice. Cuando varios conjuntos tienen interseccion no vacia, se agrega el simplex correspondiente. Esta traduccion permite estudiar un espacio continuo mediante una estructura combinatoria."
+          title: "Concentracion por Codigo Postal",
+          content: "El analisis por codigo postal revela nucleos de mayor presencia y zonas donde la oferta queda mas dispersa. Este enfoque es practico para priorizar revision territorial porque conecta la ubicacion de establecimientos con unidades administrativas reconocibles.",
+          image: "/assets/projects/analisis-datos-salud-denue/05_top10_codigos_postales.png",
+          caption: "Top 10 codigos postales con mayor numero de establecimientos de salud general."
         },
         {
-          title: "Importancia Matematica",
-          content: "El resultado es importante porque permite simplificar problemas topologicos sin perder propiedades homotopicas clave. Es una herramienta natural en topologia algebraica y tambien aparece en aplicaciones modernas como analisis topologico de datos."
+          title: "Mapa de Distribucion por Tipo",
+          content: "La visualizacion espacial muestra que la cobertura no se comporta de forma uniforme. Hay corredores con alta densidad de servicios y bordes territoriales con menor presencia. Esta diferencia importa porque el conteo agregado puede ocultar vacios locales relevantes.",
+          image: "/assets/projects/analisis-datos-salud-denue/06_mapa_puntos_por_tipo.png",
+          caption: "Mapa de puntos por tipo de establecimiento; evidencia concentraciones y dispersion territorial de la red de salud."
         },
         {
-          title: "Valor del Proyecto",
-          content: "El repositorio demuestra capacidad para investigar, formalizar y comunicar ideas matematicas abstractas con estructura academica, cuidando tanto el rigor como la intuicion geometrica."
+          title: "Lectura Sectorial del Territorio",
+          content: "Separar el mapa por sector publico y privado permite detectar donde la cobertura depende de mercado y donde existe presencia institucional. Esta lectura evita confundir disponibilidad economica con cobertura universal.",
+          image: "/assets/projects/analisis-datos-salud-denue/07_mapa_publico_privado.png",
+          caption: "Distribucion publico-privada de establecimientos de salud en el territorio analizado.",
+          interactiveUrl: "/assets/projects/analisis-datos-salud-denue/mapa_interactivo_tipos.html",
+          interactiveLabel: "Abrir mapa interactivo por tipo"
+        },
+        {
+          title: "Tamano Operativo en el Espacio",
+          content: "Al incorporar personal ocupado al mapa, la visualizacion cambia de una fotografia de presencia a una aproximacion de capacidad. Las zonas con puntos pequenos pueden verse cubiertas en apariencia, pero seguir dependiendo de servicios de baja escala.",
+          image: "/assets/projects/analisis-datos-salud-denue/08_mapa_tamano_operativo.png",
+          caption: "Mapa de ubicacion y tamano operativo: cada punto relaciona posicion geografica con rango de personal."
+        },
+        {
+          title: "Aislamiento Espacial",
+          content: "Se calculo la distancia al vecino mas cercano para identificar establecimientos con mayor aislamiento relativo. El percentil alto de distancia funciona como alerta: si un punto esta muy lejos de otros servicios similares, su entorno puede tener mayor vulnerabilidad ante saturacion o fallas de acceso.",
+          image: "/assets/projects/analisis-datos-salud-denue/09_hist_distancia_vecino_mas_cercano.png",
+          caption: "Histograma de distancia al vecino mas cercano; base para separar puntos integrados de puntos aislados."
+        },
+        {
+          title: "Establecimientos Aislados",
+          content: "El analisis marco 57 establecimientos aislados. No todos representan un problema por si mismos, pero si senalan zonas donde la red es menos redundante. En terminos de planeacion, estos puntos ayudan a priorizar validacion en campo y revision de demanda local.",
+          image: "/assets/projects/analisis-datos-salud-denue/10_mapa_establecimientos_aislados.png",
+          caption: "Mapa de establecimientos con mayor aislamiento espacial dentro del territorio.",
+          interactiveUrl: "/assets/projects/analisis-datos-salud-denue/mapa_aislados_hospitales.html",
+          interactiveLabel: "Abrir mapa interactivo de aislados"
+        },
+        {
+          title: "Evolucion de Cobertura con Vietoris-Rips",
+          content: "Para estudiar conectividad territorial se modelaron complejos Vietoris-Rips a distintos radios. Conforme aumenta el radio, los establecimientos pasan de ser puntos separados a una red conectada. La velocidad con la que se conectan revela si la cobertura esta compacta o fragmentada.",
+          image: "/assets/projects/analisis-datos-salud-denue/11_vr_evolucion_4radios.png",
+          caption: "Evolucion de la conectividad en cuatro radios, mostrando como aparecen enlaces y componentes territoriales."
+        },
+        {
+          title: "Complejo Alpha",
+          content: "El complejo alpha aporta una lectura geometrica mas controlada de vecindad, evitando conectar puntos solo por radio cuando la estructura espacial no lo justifica. Esta grafica ayuda a observar el esqueleto real de la red y sus zonas de separacion.",
+          image: "/assets/projects/analisis-datos-salud-denue/12_complejo_alpha_iztapalapa.png",
+          caption: "Complejo alpha aplicado a establecimientos de salud para observar conectividad espacial efectiva."
+        },
+        {
+          title: "Persistencia Homologica",
+          content: "Los barcodes H0 y H1 resumen cuando nacen y mueren componentes conectadas y huecos de cobertura. H0 permite entender fragmentacion; H1 permite detectar ciclos o vacios persistentes en la red. Este paso traduce el mapa en evidencia topologica.",
+          image: "/assets/projects/analisis-datos-salud-denue/13_barcodes_h0_h1.png",
+          caption: "Barcodes de H0 y H1: componentes y huecos de cobertura a traves de distintos radios."
+        },
+        {
+          title: "Diagrama de Persistencia",
+          content: "El diagrama de persistencia separa ruido topologico de patrones duraderos. Los puntos mas alejados de la diagonal indican estructuras que permanecen durante mas escalas y, por lo tanto, merecen mayor atencion analitica.",
+          image: "/assets/projects/analisis-datos-salud-denue/14_diagrama_persistencia_mejorado.png",
+          caption: "Diagrama de persistencia mejorado para identificar estructuras territoriales robustas."
+        },
+        {
+          title: "Comparacion Publico vs Privado",
+          content: "El modelo topologico tambien se comparo por sector. Esta comparacion ayuda a ver si la red publica y la privada tienen patrones espaciales similares o si una de ellas presenta mayor fragmentacion, concentracion o dependencia de ciertos corredores.",
+          image: "/assets/projects/analisis-datos-salud-denue/15_comparacion_sector_publico_privado.png",
+          caption: "Comparacion de patrones topologicos entre establecimientos publicos y privados."
+        },
+        {
+          title: "Componentes Conectadas",
+          content: "La evolucion de componentes H0 muestra que tan rapido se integra la red al aumentar el radio de cobertura. Si las componentes tardan en fusionarse, hay evidencia de separacion territorial y posibles barreras de acceso.",
+          image: "/assets/projects/analisis-datos-salud-denue/16_evolucion_componentes_h0.png",
+          caption: "Evolucion de componentes conectadas H0 conforme crece el radio de enlace."
+        },
+        {
+          title: "Vacios de Cobertura",
+          content: "Los huecos H1 persistentes se interpretan como zonas rodeadas por servicios, pero sin cobertura central suficiente. No sustituyen un diagnostico urbano, pero son una senal clara para revisar areas con oportunidad de intervencion.",
+          image: "/assets/projects/analisis-datos-salud-denue/17_vacios_cobertura_h1.png",
+          caption: "Visualizacion de vacios de cobertura detectados mediante H1."
+        },
+        {
+          title: "Densidad y Aislamiento",
+          content: "Combinar densidad con aislamiento permite priorizar mejor. Un punto aislado en una zona de baja densidad es mas critico que un punto aislado cerca de multiples alternativas. Esta grafica sintetiza ambos criterios para lectura operativa.",
+          image: "/assets/projects/analisis-datos-salud-denue/18_densidad_aislamiento_hospitales.png",
+          caption: "Relacion entre densidad territorial y aislamiento de establecimientos."
+        },
+        {
+          title: "Panel de Sintesis TDA",
+          content: "El panel resume las senales principales del analisis topologico: conectividad, vacios, dispersion y patrones de cobertura. Sirve como puente entre el analisis matematico y una conclusion ejecutiva para planeacion territorial.",
+          image: "/assets/projects/analisis-datos-salud-denue/19_panel_resumen_tda.png",
+          caption: "Panel resumen de hallazgos TDA para comunicar el diagnostico territorial."
+        },
+        {
+          title: "Propuesta de Ubicaciones",
+          content: "A partir de los vacios, densidad y aislamiento se generaron ubicaciones candidatas. La propuesta no pretende decidir automaticamente donde construir, sino acotar zonas prioritarias para evaluacion de factibilidad, demanda, transporte y presupuesto.",
+          image: "/assets/projects/analisis-datos-salud-denue/20_propuesta_ubicaciones.png",
+          caption: "Mapa con ubicaciones propuestas para mejorar cobertura territorial."
+        },
+        {
+          title: "Simulacion Antes y Despues",
+          content: "La simulacion compara la red actual con un escenario de intervencion. Este tipo de contraste permite comunicar impacto potencial: no solo donde faltan puntos, sino como cambiaria la conectividad si se agregaran nuevos nodos.",
+          image: "/assets/projects/analisis-datos-salud-denue/21_simulacion_antes_despues.png",
+          caption: "Comparacion de cobertura antes y despues de incorporar ubicaciones candidatas."
+        },
+        {
+          title: "Validacion Territorial",
+          content: "La validacion territorial contrasta las propuestas contra condiciones espaciales y patrones de cobertura. Este paso reduce el riesgo de elegir ubicaciones que lucen buenas en el modelo pero son debiles en la lectura geografica.",
+          image: "/assets/projects/analisis-datos-salud-denue/22_validacion_territorial.png",
+          caption: "Validacion de zonas candidatas frente al contexto territorial.",
+          interactiveUrl: "/assets/projects/analisis-datos-salud-denue/mapa_cobertura_500m.html",
+          interactiveLabel: "Abrir mapa de cobertura 500 m"
+        },
+        {
+          title: "Sensibilidad del Radio de Cobertura",
+          content: "La sensibilidad de radio muestra como cambian las conclusiones si se asume una distancia de cobertura distinta. Este analisis es clave porque una recomendacion robusta debe mantenerse razonable bajo varios supuestos de movilidad.",
+          image: "/assets/projects/analisis-datos-salud-denue/23_sensibilidad_rhab.png",
+          caption: "Sensibilidad del analisis ante cambios en el radio de cobertura asumido."
+        },
+        {
+          title: "Resultado Final",
+          content: "El proyecto convierte DENUE en una herramienta de inteligencia territorial: identifica estructura de oferta, dependencia sectorial, puntos aislados, vacios topologicos y ubicaciones candidatas. El resultado es un caso completo de analisis de datos abiertos aplicado a salud, con visualizaciones descriptivas, mapas interactivos y una capa matematica de persistencia homologica para respaldar decisiones."
         }
       ]
     }
