@@ -210,5 +210,73 @@ export const projects = [
         }
       ]
     }
+  },
+  {
+    id: 5,
+    slug: "analisis-datos-salud-denue",
+    title: "Analisis de Datos de Salud con DENUE",
+    company: "DENUE / INEGI",
+    context: "Exploracion territorial de unidades economicas relacionadas con servicios de salud en Mexico.",
+    problem: "La oferta de servicios de salud puede quedar dispersa y dificil de interpretar cuando solo se consulta como directorio o tabla.",
+    solution: "Analisis exploratorio con datos DENUE para limpiar, clasificar y visualizar patrones de establecimientos por ubicacion y categoria.",
+    impact: "Lectura mas clara de concentraciones, cobertura y oportunidades de analisis territorial para toma de decisiones.",
+    stack: ["Python", "Pandas", "DENUE", "Analisis Geoespacial", "Visualizacion"],
+    githubUrl: "https://github.com/GJLG0501/Analisis_Datos_Salud_DENUE",
+    caseStudyUrl: "https://github.com/GJLG0501/Analisis_Datos_Salud_DENUE",
+    extended: {
+      narrative: true,
+      sections: [
+        {
+          title: "Contexto del Proyecto",
+          content: "El Directorio Estadistico Nacional de Unidades Economicas permite estudiar la distribucion de establecimientos por actividad, ubicacion y caracteristicas operativas. Este proyecto toma ese insumo publico para convertirlo en una lectura analitica enfocada en servicios de salud."
+        },
+        {
+          title: "Preparacion y Limpieza",
+          content: "El trabajo parte de organizar los registros, revisar campos relevantes y preparar variables utiles para segmentar establecimientos de salud. El objetivo es reducir ruido del directorio original y dejar una base mas apta para exploracion territorial."
+        },
+        {
+          title: "Analisis Exploratorio",
+          content: "Se analizan concentraciones, categorias y patrones de presencia por zona, buscando responder donde se ubican los servicios, que tipos de unidades aparecen con mayor frecuencia y como se distribuyen dentro del territorio observado."
+        },
+        {
+          title: "Valor del Resultado",
+          content: "El resultado funciona como base para comunicar hallazgos de salud publica, planeacion urbana o inteligencia territorial. Tambien muestra capacidad para trabajar con datos abiertos reales, limpiarlos y transformarlos en evidencia visualizable."
+        }
+      ]
+    }
+  },
+  {
+    id: 6,
+    slug: "teorema-del-nervio",
+    title: "Teorema del Nervio",
+    company: "Topologia Algebraica",
+    context: "Proyecto academico sobre el Teorema del Nervio y su interpretacion mediante cubiertas, complejos simpliciales y equivalencia homotopica.",
+    problem: "Los conceptos de topologia algebraica suelen ser abstractos y dificiles de comunicar si no se conectan con ejemplos geometricos.",
+    solution: "Presentacion matematica del teorema, sus condiciones y su intuicion geometrica para estudiar espacios a partir de cubiertas.",
+    impact: "Puente conceptual entre geometria, combinatoria y topologia, util para explicar estructuras complejas con representaciones discretas.",
+    stack: ["Matematicas", "Topologia Algebraica", "Complejos Simpliciales", "LaTeX", "Investigacion"],
+    githubUrl: "https://github.com/GJLG0501/Teorema-del-Nervio",
+    caseStudyUrl: "https://github.com/GJLG0501/Teorema-del-Nervio",
+    extended: {
+      narrative: true,
+      sections: [
+        {
+          title: "Idea Central",
+          content: "El Teorema del Nervio conecta una cubierta adecuada de un espacio topologico con un complejo simplicial construido a partir de las intersecciones de sus conjuntos. Bajo condiciones apropiadas, ambos conservan informacion topologica esencial."
+        },
+        {
+          title: "Construccion del Nervio",
+          content: "Cada conjunto de la cubierta se representa como un vertice. Cuando varios conjuntos tienen interseccion no vacia, se agrega el simplex correspondiente. Esta traduccion permite estudiar un espacio continuo mediante una estructura combinatoria."
+        },
+        {
+          title: "Importancia Matematica",
+          content: "El resultado es importante porque permite simplificar problemas topologicos sin perder propiedades homotopicas clave. Es una herramienta natural en topologia algebraica y tambien aparece en aplicaciones modernas como analisis topologico de datos."
+        },
+        {
+          title: "Valor del Proyecto",
+          content: "El repositorio demuestra capacidad para investigar, formalizar y comunicar ideas matematicas abstractas con estructura academica, cuidando tanto el rigor como la intuicion geometrica."
+        }
+      ]
+    }
   }
 ];
